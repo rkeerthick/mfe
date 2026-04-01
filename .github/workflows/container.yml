@@ -1,11 +1,14 @@
 name: deploy-container
 
 on:
+  workflow_dispatch:
   push:
     branches:
+      - main
       - master
     paths:
       - "packages/container/**"
+      - ".github/workflows/container.yml"
 
 defaults:
   run:
