@@ -3,7 +3,7 @@ const commonConfig = require('./webpack.common');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const packageJson = require('../package.json');
 
-const domain = process.env.PRODUCTION_DOMAIN;
+const domain = process.env.PRODUCTION_DOMAIN.replace(/\/$/, "");
 if (!domain || !String(domain).trim()) {
     throw new Error(
         'PRODUCTION_DOMAIN must be set for production builds (no trailing slash), e.g. https://d2pa88i9w4z9o6.cloudfront.net. ' +
@@ -15,7 +15,7 @@ const prodConfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/container/latest/',
+        publicPath: "auto",
     },
     plugins: [
         new ModuleFederationPlugin({
