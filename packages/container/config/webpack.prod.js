@@ -3,7 +3,7 @@ const commonConfig = require('./webpack.common');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const packageJson = require('../package.json');
 
-const domain = process.env.REACT_APP_PRODUCTION_DOMAIN;
+const domain = process.env.PRODUCTION_DOMAIN;
 if (!domain || !String(domain).trim()) {
     throw new Error(
         'PRODUCTION_DOMAIN must be set for production builds (no trailing slash), e.g. https://d2pa88i9w4z9o6.cloudfront.net. ' +
