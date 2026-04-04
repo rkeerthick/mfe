@@ -7,7 +7,7 @@ const domain = process.env.PRODUCTION_DOMAIN;
 if (!domain || !String(domain).trim()) {
     throw new Error(
         'PRODUCTION_DOMAIN must be set for production builds (no trailing slash), e.g. https://d2pa88i9w4z9o6.cloudfront.net. ' +
-        'In GitHub Actions, set repository secret PRODUCTION_DOMAIN and pass it on the npm run build step.'
+        'In GitHub Actions,, set repository secret PRODUCTION_DOMAIN and pass it on the npm run build step.'
     );
 }
 
