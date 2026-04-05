@@ -3,7 +3,9 @@ import MarketingApp from './components/MarketingApp';
 
 const App = () => {
     return (
-        <MarketingApp />
+        <>
+            <MarketingApp />
+        </>
     );
 };
 
