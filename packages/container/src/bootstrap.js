@@ -6,10 +6,9 @@ const mount = (el) => {
     ReactDOM.render(<App />, el);
 };
 
-if (process.env.NODE_ENV === 'development') {
-    const devRoot = document.getElementById('container-app');
-    if (devRoot) {
-        mount(devRoot);
-    }
+const root = document.getElementById('container-app');
+if (root) {
+    mount(root);
 }
+
 export { mount };
