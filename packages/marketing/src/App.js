@@ -10,7 +10,7 @@ const App = () => {
             <BrowserRouter>
                 <Switch>
                     <Route path="/pricing" component={Pricing} />
-                    <Route path="/" component={Landing} />
+                    <Route path="/" component={Landing}  />
                 </Switch>
             </BrowserRouter>
         </StylesProvider>
