@@ -6,8 +6,8 @@ import Header from "./components/Header";
 const App = () => {
     return (
         <BrowserRouter>
+            <Header />
             <Switch>
-                <Header />
                 <Route path="/" component={MarketingApp}  />
             </Switch>
         </BrowserRouter>
