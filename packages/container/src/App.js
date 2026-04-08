@@ -26,6 +26,7 @@ const App = () => {
             <Route path="/auth">
                 <AuthLazy onSignIn={() => setIsSignedIn(true)} />
             </Route>
+            <Route path="/pricing" component={MarketingLazy} />
             <Route exact path="/" component={MarketingLazy} />
           </Switch>
         </Suspense>
