@@ -1,4 +1,5 @@
 const { merge } = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig = require('./webpack.common');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const packageJson = require('../package.json');
@@ -6,22 +7,26 @@ const packageJson = require('../package.json');
 const devConfig = {
     mode: 'development',
     output: {
-        publicPath: 'http://localhost:3000/',
+        publicPath: 'http://localhost:3003/',
     },
     devServer: {
-        port: 3000,
+        port: 3003,
         historyApiFallback: {
             index: '/index.html',
         },
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        }
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
         new ModuleFederationPlugin({
-            name: 'container',
+            name: 'dashboard',
             filename: 'remoteEntry.js',
-            remotes: {
-                marketing: 'marketing@http://localhost:3001/remoteEntry.js',
-                auth: 'auth@http://localhost:3002/remoteEntry.js',
-                dashboard: "dashboard@http://localhost:3003/remoteEntry.js"
+            exposes: {
+                './DashboardApp': './src/bootstrap.js',
             },
             shared: packageJson.dependencies,
         })
