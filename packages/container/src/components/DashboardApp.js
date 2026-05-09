@@ -4,6 +4,8 @@ import { mount as dashboardMount } from 'dashboard/DashboardApp';
 const DashboardApp = () => {
     const ref = useRef(null);
 
+    console.log(ref, "ref")
+
     useEffect(() => {
         dashboardMount(ref.current);
     }, []);
